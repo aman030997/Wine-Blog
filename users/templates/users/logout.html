@@ -1,0 +1,13 @@
+{% extends 'Wine/base.html'%}
+
+{% block content%}
+<h2 style="text-align: center; padding: 15px;">You have been logged out!</h2>
+
+      <div class="border-top pt-3">
+        <small class="text-muted">
+      <center>   <a href="{% url 'login'%}" > <span style="text-align: center;">Log In Again</span></a> </center>
+        </small>
+
+      </div>
+
+  {% endblock content %}

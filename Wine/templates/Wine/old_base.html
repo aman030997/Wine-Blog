@@ -1,0 +1,45 @@
+{% load static %}
+<html>
+    <head>
+        <title>MY Site</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/wine.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+    <body>
+      <div class="page-header">
+        {% if user.is_authenticated%}
+        <a href="#" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a> <!--{% url 'wine_new' %}-->
+        {% else %}
+        <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        {% endif %}
+        <h1><a href="/">Aman's Wine</a>
+          {% if user.is_authenticated%}
+          <a href="{%url 'logout'%}">  <span style="font-size: 25px; float: right; padding-right:50px !important;">Logout</span></a>
+          {% else %}
+        <a href="{%url 'register'%}">  <span style="font-size: 25px; float: right; padding-right:50px !important;">Register</span></a>
+        <a href="{%url 'login'%}">  <span style="font-size: 25px; float: right; padding-right:50px !important;">Login</span></a>
+        {% endif %}
+        </h1>
+    </div>
+
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+              {% if messages %}
+                {% for message in messages%}
+                <div class="alert alert-{{message.tags}}">
+                  {{message}}
+
+                </div>
+                {% endfor %}
+              {% endif %}
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

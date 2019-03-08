@@ -1,0 +1,27 @@
+.navbar-brand{
+	color: white !important;
+}
+
+.nav-link{
+	color: aqua !important;
+}
+
+
+
+.wrap{
+	margin-top: 15%;
+	margin-bottom: 19%;
+}
+
+.post{
+  border-bottom:  2px solid black;
+  border-top:  2px solid black;
+
+}
+.post>h2,p{
+  padding: 15px !important;
+}
+.pagination {
+  
+  font-size: 50px;
+}
